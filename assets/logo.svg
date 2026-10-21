@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" class="questmind-logo-svg" role="img" aria-label="QUESTMIND - Gaming &amp; Strategy">
+  <defs>
+    <!-- Facet Gradients for Crystal Brain -->
+    <linearGradient id="facetGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C4B5FD"/>
+      <stop offset="100%" stop-color="#8B7CF6"/>
+    </linearGradient>
+    <linearGradient id="facetGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0E7FF"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <linearGradient id="facetGrad3" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#DDD6FE"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#8B7CF6"/>
+      <stop offset="50%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="helmetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4C1D95"/>
+      <stop offset="50%" stop-color="#2E1065"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+    <linearGradient id="visorGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B7CF6" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#C4B5FD" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#8B7CF6" stop-opacity="0.3"/>
+    </linearGradient>
+    <!-- Text Shimmer Clip & Gradient -->
+    <linearGradient id="shimmerGrad" x1="-100%" y1="0%" x2="200%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="35%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#C4B5FD"/>
+      <stop offset="65%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Dark Navy Badge Container for contrast on pastel background -->
+  <rect x="4" y="4" width="332" height="72" rx="16" fill="#121124" stroke="#8B7CF6" stroke-width="1.5" stroke-opacity="0.35" class="logo-tile-bg"/>
+
+  <!-- Logo Icon Group (Crystal Brain + Arrow + Knight Helmet) -->
+  <g class="logo-icon-group" transform="translate(14, 8)">
+    <!-- Helmet Base (Knight Helmet) -->
+    <g class="logo-helmet">
+      <path d="M16 48 C16 42, 24 38, 36 38 C48 38, 56 42, 56 48 L56 56 C56 59, 52 62, 36 62 C20 62, 16 59, 16 56 Z" fill="url(#helmetGrad)" stroke="#A78BFA" stroke-width="1.2"/>
+      <!-- Knight Visor Slit -->
+      <path d="M22 49 Q36 46 50 49 Q36 52 22 49 Z" fill="url(#visorGlow)" class="visor-shine"/>
+      <!-- Helmet Crest Mount -->
+      <path d="M33 38 L39 38 L38 33 L34 33 Z" fill="#DDD6FE"/>
+    </g>
+
+    <!-- Rising Arrow (shooting up through the brain) -->
+    <g class="logo-arrow">
+      <path d="M36 38 L36 12" stroke="url(#arrowGrad)" stroke-width="3" stroke-linecap="round" class="arrow-shaft"/>
+      <polygon points="36,4 30,14 42,14" fill="url(#arrowGrad)" class="arrow-head"/>
+    </g>
+
+    <!-- Crystal Brain Facets (Geometric Faceted Gem Brain) -->
+    <g class="logo-crystal-brain" filter="url(#softGlow)">
+      <!-- Left Hemisphere Facets -->
+      <polygon points="34,16 26,14 20,20 28,24" fill="url(#facetGrad1)" class="facet facet-1" stroke="#E6E1FF" stroke-width="0.5"/>
+      <polygon points="20,20 14,26 18,34 26,30" fill="url(#facetGrad2)" class="facet facet-2" stroke="#E6E1FF" stroke-width="0.5"/>
+      <polygon points="26,30 18,34 22,40 32,38" fill="url(#facetGrad3)" class="facet facet-3" stroke="#E6E1FF" stroke-width="0.5"/>
+      <polygon points="28,24 20,20 26,30 34,26" fill="url(#facetGrad1)" class="facet facet-4" stroke="#E6E1FF" stroke-width="0.5"/>
+
+      <!-- Right Hemisphere Facets -->
+      <polygon points="38,16 46,14 52,20 44,24" fill="url(#facetGrad2)" class="facet facet-5" stroke="#E6E1FF" stroke-width="0.5"/>
+      <polygon points="52,20 58,26 54,34 46,30" fill="url(#facetGrad1)" class="facet facet-6" stroke="#E6E1FF" stroke-width="0.5"/>
+      <polygon points="46,30 54,34 50,40 40,38" fill="url(#facetGrad3)" class="facet facet-7" stroke="#E6E1FF" stroke-width="0.5"/>
+      <polygon points="44,24 52,20 46,30 38,26" fill="url(#facetGrad2)" class="facet facet-8" stroke="#E6E1FF" stroke-width="0.5"/>
+
+      <!-- Central Crystal Core -->
+      <polygon points="36,10 32,22 36,32 40,22" fill="#FFFFFF" fill-opacity="0.85" class="facet-core"/>
+    </g>
+  </g>
+
+  <!-- Typography: Wordmark "QUESTMIND" and Subtitle "Gaming & Strategy" -->
+  <g class="logo-text-group" transform="translate(86, 0)">
+    <text x="0" y="44" font-family="'Chakra Petch', 'Outfit', sans-serif" font-weight="900" font-size="28" letter-spacing="2.5" fill="url(#shimmerGrad)" class="logo-wordmark">
+      QUEST<tspan class="shimmer-letters" fill="#8B7CF6">MIND</tspan>
+    </text>
+    <text x="1" y="62" font-family="'Outfit', sans-serif" font-weight="700" font-size="10.5" letter-spacing="3.2" fill="#E6E1FF" opacity="0.9" class="logo-subtitle">
+      GAMING &amp; STRATEGY
+    </text>
+  </g>
+</svg>

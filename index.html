@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>QUESTMIND � AI-Powered Gamified Learning Platform</title>
+  <meta name="description" content="Choose any topic. Understand it visually. Learn through an adventure. Master it through practice. Earn achievements. Interactive learning adventure for students aged 13-18." />
+  <meta name="keywords" content="gamified learning, AI education, students, quiz, adventure game, school subjects" />
+  <meta name="theme-color" content="#0a0a1a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .skillverse-header-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 0.92rem;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 0 18px rgba(245,158,11,0.5);
+      animation: skillverse-pulse 2.4s ease-in-out infinite;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      flex-shrink: 0;
+    }
+    .skillverse-header-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 0 28px rgba(239,68,68,0.7);
+    }
+    @keyframes skillverse-pulse {
+      0%, 100% { box-shadow: 0 0 14px rgba(245,158,11,0.5); }
+      50%       { box-shadow: 0 0 28px rgba(239,68,68,0.75), 0 0 8px rgba(245,158,11,0.4); }
+    }
+    .skillverse-banner-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 26px 30px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #1a0a2e 0%, #3b0764 40%, #7c2d12 100%);
+      border: 2px solid rgba(245, 158, 11, 0.45);
+      box-shadow: 0 8px 32px rgba(245,158,11,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .skillverse-banner-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(-45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 14px);
+      pointer-events: none;
+    }
+    .skillverse-banner-info h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 900;
+      color: #fbbf24;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .skillverse-banner-info p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.92rem;
+      font-weight: 600;
+      line-height: 1.5;
+      max-width: 500px;
+    }
+    .skillverse-play-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(239,68,68,0.45);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      flex-shrink: 0;
+      animation: skillverse-pulse 2.4s ease-in-out infinite;
+    }
+    .skillverse-play-btn:hover {
+      transform: scale(1.06) translateY(-2px);
+      box-shadow: 0 10px 36px rgba(239,68,68,0.65);
+    }
+    .skillverse-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(245,158,11,0.25);
+      border: 1px solid rgba(245,158,11,0.5);
+      color: #fbbf24;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    @media (max-width: 600px) {
+      .skillverse-header-btn { font-size: 0.78rem; padding: 7px 12px; }
+      .skillverse-banner-card { padding: 20px 18px; }
+      .skillverse-play-btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body data-theme="cosmic">
+  <div id="questmind-floating-bg" class="qm-floating-bg" aria-hidden="true"></div>
+  <header id="app-header">
+    <div class="header-left">
+      <a class="header-brand questmind-header-logo-link" id="nav-brand-btn" title="QuestMind: Gaming & Strategy">
+      <img src="assets/logo.svg" alt="QuestMind Logo" class="questmind-header-logo-img" />
+    </a>
+      <nav class="header-nav" id="header-nav">
+        <button class="nav-link" data-screen="dashboard">
+          <span class="nav-box-icon">🏠</span>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-link" data-screen="subjects">
+          <span class="nav-box-icon">📚</span>
+          <span>Subjects & Levels</span>
+        </button>
+        <button class="nav-link" data-screen="search">
+          <span class="nav-box-icon">🔍</span>
+          <span>Search</span>
+        </button>
+        <button class="nav-link" data-screen="achievements">
+          <span class="nav-box-icon">🎖️</span>
+          <span>Badges</span>
+        </button>
+        <button class="nav-link" data-screen="progress">
+          <span class="nav-box-icon">📊</span>
+          <span>Progress</span>
+        </button>
+      </nav>
+    </div>
+
+    <a
+      id="btn-play-skillverse-header"
+      href="https://fancy-caramel-6fde06.netlify.app"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="skillverse-header-btn"
+      title="Play SKILLVERSE - the adventure learning game!"
+    >
+      &#127918; Play SKILLVERSE
+    </a>
+
+    <div class="header-right">
+      <button class="btn btn-ghost btn-sm" id="header-profile-btn" style="padding:6px 12px;">&#128100; Profile</button>
+    </div>
+  </header>
+
+  <div id="app-root"></div>
+
+  <!-- Embedded Netlify Game Portal Screen -->
+  <div id="screen-game-portal" class="screen" style="display:none;">
+    <div class="game-portal-header">
+      <button class="btn btn-secondary btn-sm" id="btn-back-from-game">← Back to Lesson</button>
+      <div class="game-portal-info">
+        <span class="game-portal-badge">🎮 LIVE SIMULATION</span>
+        <span id="game-portal-topic-title" class="game-portal-title">SKILLVERSE Mission</span>
+      </div>
+      <a href="https://fancy-caramel-6fde06.netlify.app" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm" id="btn-game-newtab" title="Open in separate tab if needed">⤢ Pop Out</a>
+    </div>
+    <div class="game-portal-body">
+      <div id="game-portal-loading" class="game-portal-spinner-wrap">
+        <div class="qm-spinner"></div>
+        <p>Launching SKILLVERSE Educational Game…</p>
+      </div>
+      <div id="game-portal-fallback" class="game-portal-fallback-card" style="display:none;">
+        <div class="fallback-icon">🛡️</div>
+        <h3>Play SKILLVERSE in Full Arena</h3>
+        <p>If the embedded game cannot connect inside your browser window, launch it directly in the interactive game arena.</p>
+        <div class="fallback-actions">
+          <a id="btn-portal-fallback-open" href="https://fancy-caramel-6fde06.netlify.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+            ▶ Open SKILLVERSE Game
+          </a>
+          <button class="btn btn-ghost" id="btn-fallback-back">← Back to Lesson</button>
+        </div>
+      </div>
+      <iframe id="game-portal-iframe" class="game-portal-iframe" allow="fullscreen; autoplay" src="about:blank"></iframe>
+    </div>
+  </div>
+
+
+  <div id="nova-overlay">
+    <div class="nova-bubble glass-strong">
+      <div class="nova-header">
+        <div class="nova-avatar">&#129302;</div>
+        <div class="nova-title font-game">NOVA AI Coach</div>
+        <button class="nova-close-btn" id="nova-close-btn" title="Close NOVA">&#10005;</button>
+      </div>
+      <div class="nova-message"></div>
+      <div class="nova-visual"></div>
+      <div class="nova-actions"></div>
+    </div>
+  </div>
+
+  <div id="toast-container" aria-live="polite"></div>
+  <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;display:none;"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+
+  <script src="js/data/constants.js"></script>
+  <script src="js/data/curriculum.js"></script>
+  <script src="js/data/achievements.js"></script>
+  <script src="js/data/competencies.js"></script>
+  <script src="js/data/store.js"></script>
+  <script src="js/data/worlds.js"></script>
+  <script src="js/data/missions.js"></script>
+
+  <script src="js/ui/utils.js"></script>
+  <script src="js/ui/animations.js"></script>
+  <script src="js/ui/sound.js"></script>
+  <script src="js/ui/nova.js"></script>
+
+  <script src="js/components/simulations.js"></script>
+  <script src="js/components/videoPlayer.js"></script>
+  <script src="js/components/tutorChat.js"></script>
+
+  <script src="js/screens/onboarding.js"></script>
+  <script src="js/screens/worldmap.js"></script>
+  <script src="js/screens/passport.js"></script>
+  <script src="js/screens/teacher.js"></script>
+
+  <script src="js/game/scenes/BootScene.js"></script>
+  <script src="js/game/scenes/GameScene.js"></script>
+  <script src="js/game/GameManager.js"></script>
+
+  <script src="js/app.js"></script>
+
+  <script>
+    (function injectSkillverseBanner() {
+      var SKILLVERSE_URL = 'https://fancy-caramel-6fde06.netlify.app';
+      var BANNER_ID = 'skillverse-dashboard-banner';
+
+      function buildBanner() {
+        var banner = document.createElement('div');
+        banner.id = BANNER_ID;
+        banner.className = 'skillverse-banner-card';
+        banner.innerHTML =
+          '<span class="skillverse-badge">&#10024; Featured Game</span>' +
+          '<div class="skillverse-banner-info">' +
+            '<h2>&#127918; SKILLVERSE</h2>' +
+            '<p>Learn it. Then run it! Pick any topic, master the concept with animated lessons, then jump into the runner adventure game to test your skills!</p>' +
+          '</div>' +
+          '<a id="btn-play-skillverse-dashboard" href="' + SKILLVERSE_URL + '" target="_blank" rel="noopener noreferrer" class="skillverse-play-btn">&#9654; Play SKILLVERSE</a>';
+        return banner;
+      }
+
+      function tryInsertBanner() {
+        if (document.getElementById(BANNER_ID)) return;
+        var dashScreen = document.getElementById('screen-dashboard');
+        if (!dashScreen) return;
+        if (dashScreen.style.display === 'none' || dashScreen.hidden) return;
+        var dashContent = dashScreen.querySelector('.screen-content');
+        if (dashContent) {
+          dashContent.insertBefore(buildBanner(), dashContent.firstChild);
+        }
+      }
+
+      function setup() {
+        var dashScreen = document.getElementById('screen-dashboard');
+        if (!dashScreen) { setTimeout(setup, 300); return; }
+
+        var observer = new MutationObserver(function() { tryInsertBanner(); });
+        observer.observe(dashScreen, { childList: true, subtree: true });
+
+        document.addEventListener('qm:screen-shown', function(e) {
+          if (e.detail && e.detail.screen === 'dashboard') {
+            setTimeout(tryInsertBanner, 80);
+          }
+        });
+
+        var checks = 0;
+        var poll = setInterval(function() {
+          tryInsertBanner();
+          checks++;
+          if (checks > 30 || document.getElementById(BANNER_ID)) clearInterval(poll);
+        }, 1000);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setup);
+      } else {
+        setTimeout(setup, 100);
+      }
+    })();
+  </script>
+</body>
+</html>
